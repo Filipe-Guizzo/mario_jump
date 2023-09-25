@@ -1,0 +1,167 @@
+@import url(https://db.onlinewebfonts.com/c/29f4c6fe36801450398679968448cf3d?family=Super+Mario+Bros.);
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: "Super Mario Bros.";
+}
+
+:root{
+    --sky:#87CEFA;
+    --btn-bg:#FFD700;
+    --btn-border:#FFA500;
+    --game-over: #DC143C;
+    --controls-bg: #F0F8FF;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+main{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.game-board{
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background-color: var(--sky);
+    overflow: hidden;
+}
+
+.game-control{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30vh;
+    background-color: var(--controls-bg);
+}
+
+.btn-start{
+    width: 200px;
+    height: 100px;
+    background-color: var(--btn-bg);
+    border: 5px solid var(--btn-border);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 20pt;
+    color: var(--btn-border);
+}
+
+.ground{
+    position: absolute;
+    background-image: url("./assets/ground.png");
+    background-repeat: repeat-x;
+    background-size: 30%;
+    width: 100%;
+    height: 13vh;
+    bottom: 0px;
+}
+
+.grass{
+    position: absolute;
+    background-image: url("./assets/grass.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 40vh;
+    bottom: 0vh;
+    left: 100%;
+}
+
+.clouds{
+    position: absolute;
+    background-image: url("./assets/clouds.png");
+    background-repeat: no-repeat;
+    background-size: 25%;
+    width: 100%;
+    height: 40vh;
+    top: 0vh;
+    left: 100%;
+}
+
+.mario{
+    position: absolute;
+    background-image: url("./assets/mario_stop.png");
+    background-repeat: no-repeat;
+    background-size: 10%;
+    width: 100%;
+    height: 20vh;
+    bottom: 90px;
+    z-index: 9999;
+    left: 13%;
+}
+
+.run{
+    background-image: url("./assets/mario_run.gif");
+}
+
+.jump{
+    background-image: url("./assets/mario_jump.png");
+    animation: jump 1s ease-in-out;
+}
+
+.dead{
+    background-image: url("./assets/mario_dead.png");
+}
+
+.pipe{
+    position: absolute;
+    background-image: url("./assets/pipe.png");
+    background-repeat: no-repeat;
+    background-size: 7%;
+    width: 100%;
+    height: 20vh;
+    bottom: 16px;
+    z-index: 9998;
+    left: 100%;
+}
+
+.counter{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 20px;
+    font-size: 30pt;
+    color: var(--btn-border);
+}
+
+.game-over{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40pt;
+    color: var(--game-over);
+    visibility: hidden;
+}
+
+@keyframes to-move{
+    from{
+        left: 100%;
+    }
+
+    to{
+        left: -100%;
+    }
+}
+
+
+@keyframes jump{
+    0%{
+        bottom: 90px;
+    }
+
+    50%{
+        bottom: 250px;
+    }
+
+    100%{
+        bottom: 90px;
+    }
+}
